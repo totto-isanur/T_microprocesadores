@@ -1,0 +1,23 @@
+---------------------------------------------
+OSHONSOFT Z80 ASSEMBLER LISTING
+Line   Addr Opcode      Label   Instruction
+---------------------------------------------
+0001   0000             ;convertit dos numero hex a bcd par aluego sumarlos
+0002   0000             	.org 0000h
+0003   0000 06 AB       	ld b, ABh; se asignan los valores en los registros b y c
+0004   0002 0E CD       	ld c, cdh
+0005   0004             ;movemos el contenido de los registros para manipularlos mas facil
+0006   0004 78          	ld a,b
+0007   0005 59          	ld e,c
+0008   0006 E6 0F       	and 0x0f;separando los bits menos y mas significantes
+0009   0008 4F          	ld c,a
+0010   0009 78          	ld a,b
+0011   000A E6 F0       	and 0xf0
+0012   000C 47          	ld b,a
+0013   000D 7B          	ld a,e;separando los datos del segundo numero
+0014   000E E6 F0       	and 0xf0
+0015   0010 57          	ld d,a
+0016   0011 7B          	ld a,e
+0017   0012 E6 0F       	and 0x0f
+0018   0014 5F          	ld e,a
+Number of errors = 0
